@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 jobs:
-    quality:
+  quality:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -34,6 +34,7 @@ jobs:
 
       - name: Test
         run: pytest -v
+
   build:
     needs: quality
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
